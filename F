@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aëronthul – Nación del Fénix Áureo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Raleway&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-profundo: #001f3f;
+      --dorado: #ffd700;
+      --blanco: #f0f0f0;
+    }
+
+    body {
+      margin: 0;
+      background: var(--azul-profundo);
+      color: var(--blanco);
+      font-family: 'Raleway', sans-serif;
+      transition: background 1s;
+    }
+
+    header {
+      background-color: var(--dorado);
+      color: var(--azul-profundo);
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 4px solid var(--blanco);
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    section {
+      padding: 2rem;
+      border-bottom: 2px solid var(--dorado);
+      animation: fadeIn 1s ease-in;
+    }
+
+    h2 {
+      color: var(--dorado);
+      font-family: 'Cinzel', serif;
+      border-left: 6px solid var(--dorado);
+      padding-left: 10px;
+    }
+
+    .language-toggle {
+      text-align: right;
+      margin: 1rem 2rem;
+    }
+
+    .language-toggle button {
+      padding: 0.5rem 1rem;
+      background-color: var(--dorado);
+      color: var(--azul-profundo);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .himno blockquote {
+      background: rgba(255,255,255,0.1);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 5px solid var(--dorado);
+    }
+
+    .play-audio {
+      background-color: var(--dorado);
+      color: var(--azul-profundo);
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--dorado);
+      color: var(--azul-profundo);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .mapa {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      border: 3px solid var(--dorado);
+      box-shadow: 0 0 20px gold;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nación del Fénix Áureo – Aëronthul</h1>
+    <p>“Velkar, më thälra vërak — Valor que honra la verdad.”</p>
+  </header>
+
+  <div class="language-toggle">
+    <button onclick="toggleIdioma()">Cambiar idioma</button>
+  </div>
+
+  <section id="bandera">
+    <h2>🏳️ Bandera y Símbolos</h2>
+    <p id="simbolos">Fénix dorado, estrellas de justicia y honor, escudo protector y fondo azul profundo.</p>
+  </section>
+
+  <section class="himno">
+    <h2>🎵 Himno Nacional</h2>
+    <button class="play-audio" onclick="document.getElementById('audio').play()">▶ Reproducir Himno</button>
+    <audio id="audio" src="https://upload.wikimedia.org/wikipedia/commons/4/41/US_Navy_Band_-_National_Anthem_of_the_United_States.ogg"></audio>
+    <h3 id="verso-title">Letra en Aërican:</h3>
+    <blockquote id="verso">
+      I. Veluarienën Khärës...<br>
+      II. Ëlvëra kharäth...<br>
+      III. Dëkarëth nër...<br>
+      IV. Thälarë kharäl...<br>
+      V. Aëronthul khärës...
+    </blockquote>
+  </section>
+
+  <section id="mapa">
+    <h2>🗺️ Mapa Interactivo (ficticio)</h2>
+    <img class="mapa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Fantasy_map_example_by_caeora.jpg/800px-Fantasy_map_example_by_caeora.jpg" alt="Mapa de Aëronthul">
+  </section>
+
+  <footer>
+    © 2025 Aëronthul 🇦🇺 | Poder, Sabiduría y Valor Eterno
+  </footer>
+
+  <script>
+    let idioma = 'aerican';
+
+    function toggleIdioma() {
+      const verso = document.getElementById('verso');
+      const titulo = document.getElementById('verso-title');
+      const simbolos = document.getElementById('simbolos');
+
+      if (idioma === 'aerican') {
+        idioma = 'es';
+        titulo.textContent = 'Letra en Español:';
+        verso.innerHTML = `
+          I. Nuestras almas viven...<br>
+          II. Saludamos unidos...<br>
+          III. Reclamamos la verdad...<br>
+          IV. La memoria honra...<br>
+          V. Aëronthul vive...
+        `;
+        simbolos.textContent = 'El Fénix Áureo representa la resiliencia, las estrellas representan los tres poderes, el escudo protege, el azul expresa sabiduría.';
+      } else {
+        idioma = 'aerican';
+        titulo.textContent = 'Letra en Aërican:';
+        verso.innerHTML = `
+          I. Veluarienën Khärës...<br>
+          II. Ëlvëra kharäth...<br>
+          III. Dëkarëth nër...<br>
+          IV. Thälarë kharäl...<br>
+          V. Aëronthul khärës...
+        `;
+        simbolos.textContent = 'Fénix dorado, estrellas de justicia y honor, escudo protector y fondo azul profundo.';
+      }
+    }
+  </script>
+</body>
+</html>
